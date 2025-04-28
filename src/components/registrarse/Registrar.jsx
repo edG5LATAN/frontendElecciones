@@ -77,7 +77,7 @@ function Registrar() {
               </button>
             </div>
             <div className="pt-2">
-              <p>If you've email and password return <Link to={"/"}>Here</Link></p>
+              <p className='fst-italic'>If you've email and password return <Link to={"/"}>Here</Link></p>
             </div>
           </form>
         </div>

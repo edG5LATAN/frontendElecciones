@@ -41,7 +41,7 @@ function Home() {
               </button>
             </div>
             <div className="pt-2">
-              <p>If you are not logged in, press <Link to={"/registrase"}>Here</Link></p>
+              <p>If you are not logged in, press <Link to={"/register"}>Here</Link></p>
             </div>
           </form>
         </div>
