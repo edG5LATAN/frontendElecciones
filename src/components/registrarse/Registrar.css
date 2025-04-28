@@ -1,0 +1,15 @@
+.registrar_contenedor{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.registrar_caja{
+  background-color: rgb(19, 122, 153);
+  border-radius: 10px;
+  width: 90%;
+}
+.registrar_caja_votar{
+  background-color: lightgrey;
+  border-radius: 10px;
+}
