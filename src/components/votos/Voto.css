@@ -1,6 +1,13 @@
 .voto_contenedor{
   min-height: 100vh; 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center; 
+}
+.voto_contenedor_1{
+  width: 50%;
+}
+.voto_img{
+  width: 200px;
 }
