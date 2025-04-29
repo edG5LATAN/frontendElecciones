@@ -61,7 +61,7 @@ function Registrar() {
             </div>
             <div className="">
               <label for="validationDefault01" className="form-label">
-                repeat to Password
+                Repeat to Password
               </label>
               <input
                 type="password"

@@ -79,7 +79,7 @@ function Votar() {
             </select>
           </div>
           <div className="d-flex justify-content-center align-items-center">
-            <img className="voto_img" src="./images/voto.png" alt="" />
+            <img className="voto_img" src="./banderas/nacionalista.jpg" alt="" />
           </div>
         </div>
       </div>
