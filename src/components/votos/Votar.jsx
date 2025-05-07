@@ -46,7 +46,7 @@ function Votar() {
           </div>
           <div className="">
             <label for="validationDefault01" className="form-label">
-              School
+              Grade
             </label>
             <input
               type="password"

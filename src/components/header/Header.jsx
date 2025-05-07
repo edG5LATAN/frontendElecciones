@@ -22,6 +22,9 @@ function Header() {
                 <Link to={"/vote"} className="nav-link text-danger">Log-Out</Link>
             </li>
             <li className="nav-item">
+                <Link to={"/count"} className="nav-link text-primary">Count</Link>
+            </li>
+            <li className="nav-item">
                 <Link to={"/about"} className="nav-link text-primary">About</Link>
             </li>
         </ul>

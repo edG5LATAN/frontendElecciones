@@ -7,6 +7,7 @@ import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import About from './components/about/About'
 import Votar from './components/votos/Votar'
+import Partidos from './components/partidos/Partidos'
 
 
 
@@ -22,6 +23,7 @@ function App() {
         <Route path='/register' element={<Registrar />} />
         <Route path='/about' element={<About />} />
         <Route path='/vote' element={<Votar />} />
+        <Route path='/count' element={<Partidos />} />
        </Routes>
        <Footer />
      </BrowserRouter>

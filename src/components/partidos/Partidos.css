@@ -1,0 +1,13 @@
+.partido_contenedor{
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.partido_contenedores_partidos{
+  width: 200px;
+}
+.imagen_banderas{
+  width: 100%;
+  height: 150px;
+}
