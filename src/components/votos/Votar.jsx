@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Voto.css";
 import Swal from "sweetalert2";
+import { listaBandera } from "../../service/Listas";
 
 function Votar() {
+  const [bandera, setbandera] = useState("");
+  const [name,setname]= useState("")
+  const [lastName,setLastName]= useState("")
+  const [email,setEmail]= useState("")
+  const [grade,setGrade]= useState("")
+
   return (
     <div className="voto_contenedor">
       <h2 className="text-capitalize fw-bold">School Elections</h2>
@@ -16,7 +23,7 @@ function Votar() {
               type="text"
               className="form-control"
               id="validationDefault01"
-              value=""
+              value={name}
               readOnly
             />
           </div>
@@ -28,7 +35,7 @@ function Votar() {
               type="text"
               className="form-control"
               id="validationDefault01"
-              value=""
+              value={lastName}
               readOnly
             />
           </div>
@@ -40,7 +47,7 @@ function Votar() {
               type="email"
               className="form-control"
               id="validationDefault01"
-              value=""
+              value={email}
               readOnly
             />
           </div>
@@ -52,7 +59,7 @@ function Votar() {
               type="password"
               className="form-control"
               id="validationDefault01"
-              value=""
+              value={grade}
               readOnly
             />
           </div>
@@ -71,15 +78,29 @@ function Votar() {
             <label for="validationDefault01" className="text-center">
               political party
             </label>
-            <select className="form-select" aria-label="Default select example">
-              <option selected>Select One</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <select onChange={(e)=>{setbandera(e.target.value)}} className="form-select" aria-label="Default select example">
+              <option selected value="" >Select One</option>
+              {listaBandera.map((res, index) => {
+                return (
+                  <option key={index} value={res.bandera}>
+                    {res.nombre}
+                  </option>
+                );
+              })}
+              {/* <option value="2">Two</option>
+              <option value="3">Three</option> */}
             </select>
           </div>
           <div className="d-flex justify-content-center align-items-center">
-            <img className="voto_img" src="./banderas/nacionalista.jpg" alt="" />
+            <img
+              className="voto_img"
+              src={
+                bandera == ""
+                  ? "https://cdn-icons-png.flaticon.com/512/1582/1582013.png"
+                  : `./banderas/${bandera}`
+              }
+              alt={bandera}
+            />
           </div>
         </div>
       </div>

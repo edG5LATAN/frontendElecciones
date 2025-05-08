@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 function Home() {
+  const [email,setEmail]= useState("")
+  const [pass,setPass]= useState("")
+
+
   return (
     <div className="home_contenedor">
       <div className="home_caja w-50 mw-100 p-2 ">
@@ -18,7 +22,8 @@ function Home() {
                 type="text"
                 className="form-control"
                 id="validationDefault01"
-                value=""
+                value={email}
+                onChange={(e)=>{setEmail(e.target.value)}}
                 required
               />
             </div>
@@ -30,7 +35,8 @@ function Home() {
                 type="password"
                 className="form-control"
                 id="validationDefault01"
-                value=""
+                value={pass}
+                onChange={(e)=>{setPass(e.target.value)}}
                 required
               />
             </div>
