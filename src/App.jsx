@@ -8,6 +8,8 @@ import Footer from './components/footer/Footer'
 import About from './components/about/About'
 import Votar from './components/votos/Votar'
 import Partidos from './components/partidos/Partidos'
+import { ProtectedRoutes } from './components/protected/ProtectedRoutes'
+import { Datos } from './contexto/Contexto'
 
 
 
@@ -17,14 +19,18 @@ function App() {
   return (
     <>
      <BrowserRouter>
+     <Datos>
      <Header />
        <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/register' element={<Registrar />} />
         <Route path='/about' element={<About />} />
-        <Route path='/vote' element={<Votar />} />
-        <Route path='/count' element={<Partidos />} />
+        <Route path='/register' element={<Registrar />} />
+        <Route element={<ProtectedRoutes />}>
+         <Route path='/vote' element={<Votar />} />
+         <Route path='/count' element={<Partidos />} />
+        </Route>
        </Routes>
+       </Datos>
        <Footer />
      </BrowserRouter>
     </>

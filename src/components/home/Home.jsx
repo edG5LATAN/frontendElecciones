@@ -1,12 +1,33 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Home.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { usuarios } from "../../service/Listas";
+import { Contexto } from "../../contexto/Contexto";
 
 function Home() {
-  const [email,setEmail]= useState("")
-  const [pass,setPass]= useState("")
+  const {login,setLogin}= useContext(Contexto)
+  const [email, setEmail] = useState("");
+  const [pass, setPass] = useState("");
+  const useNavi= useNavigate();
 
+
+  const loguearse = () => {
+    if (email === usuarios.correo && pass === usuarios.pass) {
+      Swal.fire({
+        title: "your's Login is success",
+        icon: "success",
+        draggable: true,
+      });
+      setLogin(true)
+      return useNavi("/vote")
+    }
+    return Swal.fire({
+      icon: "error",
+      title: "Error Data...",
+      text: "Email and Pass not exists!",
+    });
+  };
 
   return (
     <div className="home_contenedor">
@@ -23,7 +44,9 @@ function Home() {
                 className="form-control"
                 id="validationDefault01"
                 value={email}
-                onChange={(e)=>{setEmail(e.target.value)}}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
                 required
               />
             </div>
@@ -36,7 +59,9 @@ function Home() {
                 className="form-control"
                 id="validationDefault01"
                 value={pass}
-                onChange={(e)=>{setPass(e.target.value)}}
+                onChange={(e) => {
+                  setPass(e.target.value);
+                }}
                 required
               />
             </div>
@@ -44,13 +69,7 @@ function Home() {
               <button
                 className="btn btn-primary"
                 type="button"
-                onClick={() => {
-                  Swal.fire({
-                    title: "your's Login is success",
-                    icon: "success",
-                    draggable: true,
-                  });
-                }}
+                onClick={loguearse}
               >
                 Login
               </button>
