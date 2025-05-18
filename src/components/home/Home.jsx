@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import "./Home.css";
 import { Link, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
-import { usuarios } from "../../service/Listas";
 import { Contexto } from "../../contexto/Contexto";
+import { loginService } from "../../service/ServiceBackend";
+import { alertInvalido, alertOk } from "../../service/Listas";
 
 function Home() {
   const {login,setLogin}= useContext(Contexto)
@@ -13,21 +13,17 @@ function Home() {
 
 
   const loguearse = () => {
-    if (email === usuarios.correo && pass === usuarios.pass) {
-      Swal.fire({
-        title: "your's Login is success",
-        icon: "success",
-        draggable: true,
-      });
-      setLogin(true)
-      return useNavi("/vote")
+    if (email != "" && pass != "") {
+      const datos={
+        "correo":email,
+        "password":pass
+      }
+      loginService(datos,setLogin,useNavi,alertOk,alertInvalido)
+      return 
     }
-    return Swal.fire({
-      icon: "error",
-      title: "Error Data...",
-      text: "Email and Pass not exists!",
-    });
+    return alertInvalido("User and password invalid");
   };
+
 
   return (
     <div className="home_contenedor">

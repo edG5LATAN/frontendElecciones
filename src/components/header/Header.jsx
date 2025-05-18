@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import "./Header.css";
 import { Link, useNavigate } from "react-router-dom";
 import { Contexto } from "../../contexto/Contexto";
+import { logOutService } from "../../service/ServiceBackend";
+import { alertOk } from "../../service/Listas";
 
 function Header() {
   const { setLogin } = useContext(Contexto);
@@ -44,7 +46,7 @@ function Header() {
           to={"/vote"}
           className="nav-link text-danger"
           onClick={() => {
-            setLogin(false);
+            logOutService(setLogin,alertOk);
           }}
         >
           Log-Out

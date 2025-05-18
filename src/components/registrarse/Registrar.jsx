@@ -3,6 +3,8 @@ import "./Registrar.css";
 import { Link } from "react-router-dom";
 import { listaGrados } from "../../service/Listas";
 import Swal from "sweetalert2";
+import { crearAlumnoService } from "../../service/ServiceBackend";
+
 
 function Registrar() {
   const [name, setname] = useState("");
@@ -17,25 +19,19 @@ function Registrar() {
     
     if(verificarNulos() ==true && verificarPass()){
       const alumno={
-          "name":name,
+          "nombre":name,
           "lastname":lastName,
           "grade":grade,
-          "usuario":{
+          "user":{
             "email":email,
             "password":pass
           }
         }
-        return Swal.fire({
-                title: "Created correctly",
-                icon: "success",
-                draggable: true,
-              });
+      crearAlumnoService(alumno,alertOk,alertInvalido);
+      limpiarInput();
+      return 
     }
-    return Swal.fire({
-          icon: "error",
-          title: "Error Info...",
-          text: "fill in all the fields!",
-        });
+    return alertInvalido("fill in all the fields!");
   }
 
   const verificarNulos=()=>{
@@ -52,7 +48,31 @@ function Registrar() {
      return false
   }
 
+  const limpiarInput=()=>{
+    setname("")
+    setLastName("")
+    setEmail("")
+    setGrade("")
+    setPass("")
+    setPassR("")
+  }
 
+  const alertOk = () => {
+        Swal.fire({
+          title: "Login True!",
+          icon: "success",
+          draggable: true,
+        });
+      };
+    
+      const alertInvalido=()=>{
+        Swal.fire({
+          icon: "error",
+          title: "Falla...",
+          text: "fill in all the fields!",
+          // footer: '<a href="#">Why do I have this issue?</a>'
+        });
+      }
 
   return (
     <div className="registrar_contenedor">

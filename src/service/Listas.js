@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 export const listaBandera = [
   {
     nombre: "DC",
@@ -33,44 +35,21 @@ export const listaBandera = [
   },
 ];
 
-export const alumnos = [
-  {
-    "nombre": "nombreprimario",
-    "apellido": "apellidoPrimario",
-    "correo": "primero@gmail.com",
-    "grado": "primero"
-  },
-  {
-    "nombre": "secundario",
-    "apellido": "secundario",
-    "correo": "secundario@gmail.com",
-    "grado": "secundario"
-  },
-  {
-    "nombre": "tercero",
-    "apellido": "terceero  apell",
-    "correo": "tercero@gmail.com",
-    "grado": "tercero"
-  },
-  {
-    "nombre": "cuarto",
-    "apellido": "cuartoappe",
-    "correo": "cuarto@gmail.com",
-    "grado": "cuarto"
-  },
-  {
-    "nombre": "quinto",
-    "apellido": "quintoapp",
-    "correo": "quinto@gmail.com",
-    "grado": "quinto"
-  },
-  {
-    "nombre": "sexto",
-    "apellido": "sextoap",
-    "correo": "sexto@gmail.com",
-    "grado": "sexto"
-  }
-]
+export const alertOk = (msj) => {
+  Swal.fire({
+    title: msj,
+    icon: "success",
+    draggable: true,
+  });
+};
+export const alertInvalido = (msj) => {
+  Swal.fire({
+    icon: "error",
+    title: "Falla...",
+    text: msj,
+    // footer: '<a href="#">Why do I have this issue?</a>'
+  });
+}
 
 export const listaGrados = [
   "FIRST",
@@ -81,7 +60,3 @@ export const listaGrados = [
   "SIXTH"
 ]
 
-export const usuarios = {
-  "correo": "admin@gmail.com",
-  "pass": "1234"
-}
