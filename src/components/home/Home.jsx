@@ -6,7 +6,7 @@ import { loginService } from "../../service/ServiceBackend";
 import { alertInvalido, alertOk } from "../../service/Listas";
 
 function Home() {
-  const {login,setLogin}= useContext(Contexto)
+  const {login,setLogin,setUser}= useContext(Contexto)
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const useNavi= useNavigate();
@@ -18,7 +18,7 @@ function Home() {
         "correo":email,
         "password":pass
       }
-      loginService(datos,setLogin,useNavi,alertOk,alertInvalido)
+      loginService(datos,setLogin,useNavi,alertOk,alertInvalido,setUser)
       return 
     }
     return alertInvalido("User and password invalid");
@@ -27,7 +27,7 @@ function Home() {
 
   return (
     <div className="home_contenedor">
-      <div className="home_caja w-50 mw-100 p-2 ">
+      <div className="home_caja p-2 ">
         <h2 className="text-center p-2 m-2 text-uppercase">school elections</h2>
         <div className="home_caja_votar">
           <form className="p-2" novalidate>
@@ -71,7 +71,7 @@ function Home() {
               </button>
             </div>
             <div className="pt-2">
-              <p>
+              <p className="fst-italic text-body-secondary">
                 If you are not logged in, press{" "}
                 <Link to={"/register"}>Here</Link>
               </p>

@@ -2,14 +2,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 .home_caja{
   background-color: rgb(153, 153, 19);
   border-radius: 10px;
-  width: 90%;
+  width: 60%;
 }
 .home_caja_votar{
   background-color: lightgrey;
   border-radius: 10px;
+}
+@media (max-width:500px) {
+  .home_contenedor{
+    height: auto;
+  }
+  .home_caja{
+    width: 95%;
+  }
 }

@@ -43,7 +43,7 @@ function Header() {
       </li>
       <li className="nav-item">
         <Link
-          to={"/vote"}
+          to={"/"}
           className="nav-link text-danger"
           onClick={() => {
             logOutService(setLogin,alertOk);

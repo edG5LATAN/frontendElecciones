@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./Registrar.css";
 import { Link } from "react-router-dom";
-import { listaGrados } from "../../service/Listas";
-import Swal from "sweetalert2";
+import { alertInvalido, alertOk, listaGrados } from "../../service/Listas";
 import { crearAlumnoService } from "../../service/ServiceBackend";
 
 
@@ -13,7 +12,6 @@ function Registrar() {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [passR, setPassR] = useState("");
-
 
   const crearAlumno=()=>{
     
@@ -57,26 +55,9 @@ function Registrar() {
     setPassR("")
   }
 
-  const alertOk = () => {
-        Swal.fire({
-          title: "Login True!",
-          icon: "success",
-          draggable: true,
-        });
-      };
-    
-      const alertInvalido=()=>{
-        Swal.fire({
-          icon: "error",
-          title: "Falla...",
-          text: "fill in all the fields!",
-          // footer: '<a href="#">Why do I have this issue?</a>'
-        });
-      }
-
   return (
     <div className="registrar_contenedor">
-      <div className="registrar_caja w-50 p-2">
+      <div className="registrar_caja p-2 mt-2 mb-4">
         <h2 className="text-center p-2 m-2 text-uppercase">
           fill in your details
         </h2>
@@ -112,19 +93,6 @@ function Registrar() {
                 required
               />
             </div>
-            {/* <div className="pb-3">
-              <label for="validationDefault01" className="form-label">
-                Grade
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="validationDefault01"
-                value={grade}
-                onChange={(e)=>{setGrade(e.target.value)}}
-                required
-              />
-            </div> */}
 
             <div className="pb-3">
               <label for="validationDefault01grade" className="form-label">

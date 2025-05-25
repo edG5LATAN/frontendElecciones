@@ -5,7 +5,7 @@ import './About.css'
 function About() {
   return (
     <div className='about_contenedor d-flex justify-content-center align-items-center'>
-      <div className='w-50'>
+      <div className='about_contenedor_caja'>
         <h2 className='text-center text-uppercase'>Proyect School Election</h2>
         <p className='text-light-emphasis fs-5'>This is a full-stack application for managing school elections, designed to digitize and simplify the voting process for students. The frontend is built with React and Bootstrap, providing a clean and responsive interface where students can view candidates, cast votes, and see real-time results.
           <br />

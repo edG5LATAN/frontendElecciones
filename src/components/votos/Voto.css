@@ -8,8 +8,12 @@
 .voto_contenedor_1{
   width: 50%;
 }
+.voto_contenedor_caja{
+  width: 80%;
+}
 .voto_img{
   width: 200px;
+  height: 220px;
   border: 1px solid rgba(0, 0, 0, 0.253);
   border-radius: 10px;
   box-shadow: 1.5px 1.5px 1.5px 1px;
@@ -17,4 +21,14 @@
 .voto_img:hover{
   transform: scale(1.009);
   transition: ease-in-out;
+}
+@media (max-width:500px) {
+  .voto_contenedor_caja{
+    width: 95%;
+    flex-direction: column-reverse;
+  }
+  .voto_contenedor_1{
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
